@@ -75,5 +75,27 @@ public class KtpServiceImpl implements KtpService {
         return dto;
     }
 
+    @Override
+    public KtpDto update(Integer id, KtpDto dto) {
 
+        ktp ktp = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Data tidak ditemukan"));
+
+        ktp.setNomorKtp(dto.getNomorKtp());
+        ktp.setNamaLengkap(dto.getNamaLengkap());
+        ktp.setAlamat(dto.getAlamat());
+        ktp.setTanggalLahir(dto.getTanggalLahir());
+        ktp.setJenisKelamin(dto.getJenisKelamin());
+
+        repository.save(ktp);
+
+        return dto;
+    }
+
+    @Override
+    public void delete(Integer id) {
+
+        repository.deleteById(id);
+
+    }
 }
