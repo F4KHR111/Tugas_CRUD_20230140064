@@ -1,6 +1,6 @@
 package com.example.Tugas_CRUD_20230140064.service;
 
-import com.example.Tugas_CRUD_20230140064.dto.KtpDto;
+import com.example.Tugas_CRUD_20230140064.model.dto.KtpDto;
 import java.util.List;
 
 public interface KtpService {

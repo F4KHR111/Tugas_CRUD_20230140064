@@ -1,7 +1,7 @@
 package com.example.Tugas_CRUD_20230140064.service.impl;
 
-import com.example.Tugas_CRUD_20230140064.dto.KtpDto;
-import com.example.Tugas_CRUD_20230140064.entity.ktp;
+import com.example.Tugas_CRUD_20230140064.model.dto.KtpDto;
+import com.example.Tugas_CRUD_20230140064.model.entity.ktp;
 import com.example.Tugas_CRUD_20230140064.repository.KtpRepository;
 import com.example.Tugas_CRUD_20230140064.service.KtpService;
 

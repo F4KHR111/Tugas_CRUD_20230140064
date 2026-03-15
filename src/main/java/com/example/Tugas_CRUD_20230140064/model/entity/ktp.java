@@ -1,7 +1,8 @@
-package com.example.Tugas_CRUD_20230140064.entity;
+package com.example.Tugas_CRUD_20230140064.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.Date;
 
 @Entity
 @Table(name = "ktp")

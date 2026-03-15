@@ -4,17 +4,16 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
 @Component
-@AllArgsConstructor
+@AllArgsConstructor // Lombok akan membuat constructor untuk field validator
 public class ValidationUtil {
 
-    @Autowired
-    private Validator validator;
+    // Hapus @Autowired di sini
+    private final Validator validator;
 
     public void validate(Object request) {
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(request);

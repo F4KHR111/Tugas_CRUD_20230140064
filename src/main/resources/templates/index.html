@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data KTP</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:900px;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        form{
+            margin-bottom:20px;
+        }
+
+        input{
+            padding:8px;
+            margin-right:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            padding:8px 15px;
+            background:#2ecc71;
+            border:none;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th, td{
+            padding:10px;
+            border-bottom:1px solid #ddd;
+            text-align:center;
+        }
+
+        th{
+            background:#f1f1f1;
+        }
+
+        .edit{
+            background:#3498db;
+            color:white;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+        }
+
+        .delete{
+            background:#e74c3c;
+            color:white;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Data KTP</h2>
+
+    <form action="/save" method="post">
+
+        <input type="text" name="nik" placeholder="NIK" required>
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="text" name="alamat" placeholder="Alamat" required>
+
+        <button type="submit">Tambah</button>
+
+    </form>
+
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>NIK</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Aksi</th>
+        </tr>
+
+        <tr th:each="ktp : ${listKtp}">
+            <td th:text="${ktp.id}"></td>
+            <td th:text="${ktp.nik}"></td>
+            <td th:text="${ktp.nama}"></td>
+            <td th:text="${ktp.alamat}"></td>
+
+            <td>
+                <a class="edit" th:href="@{/edit/{id}(id=${ktp.id})}">Edit</a>
+                <a class="delete" th:href="@{/delete/{id}(id=${ktp.id})}">Delete</a>
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
